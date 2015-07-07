@@ -158,6 +158,19 @@ namespace HelloWorld
             }
         }
 
+        private void MainPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            if (e.NewSize.Height / e.NewSize.Width >= 1)
+            {
+                VisualStateManager.GoToState(this, "Portrait", true);
+            }
+            else
+            {
+                VisualStateManager.GoToState(this, "DefaultLayout", true);
+            }
+
+        }
+
         
 
 

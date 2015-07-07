@@ -8,7 +8,7 @@
     xmlns:common="using:HelloWorld.Common"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d" SizeChanged="MainPage_SizeChanged">
 
     <Page.Resources>
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
@@ -65,12 +65,44 @@
             <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Log in with your Windows Credentials" Height="83" FontSize="30"/>
             <TextBlock x:Name="greetingOutput" Style="{StaticResource BigGreenTextStyle}" Height="48" Margin="26,0,653,0" HorizontalAlignment="Right"/>
             <TextBlock x:Name="textBlock" TextWrapping="Wrap" Height="35" RenderTransformOrigin="0.5,0.5" Text="Username" FontSize="24"/>
-            <TextBox x:Name="textBox" TextWrapping="Wrap" Height="48" HorizontalAlignment="Left" Width="420"/>
+            <TextBox x:Name="uname" TextWrapping="Wrap" Height="48" HorizontalAlignment="Left" Width="420"/>
         </StackPanel>
         <StackPanel HorizontalAlignment="Left" Height="251" Margin="121,281,0,0" Grid.Row="1" VerticalAlignment="Top" Width="624">
             <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="Password" FontSize="24"/>
-            <PasswordBox x:Name="passwordBox" Margin="0,0,206,0" Height="47"/>
+            <PasswordBox x:Name="pwd" Margin="0,0,206,0" Height="47"/>
         </StackPanel>
-        <Button x:Name="button" Content="Log In" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70" Width="230" Margin="118,379,0,0" Grid.Row="1" FontSize="24" Click="WelcomePage_Click"/>
+        <Button x:Name="loginbutton" Content="Log In" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70" Width="230" Margin="118,379,0,0" Grid.Row="1" FontSize="24" Click="WelcomePage_Click"/>
     </Grid>
+    <VisualStateManager.VisualStateGroups>
+        <VisualStateGroup>
+            <VisualState x:Name="DefaultLayout">
+                <Storyboard>
+                </Storyboard>
+            </VisualState>
+
+            <VisualState x:Name="Portrait">
+                <Storyboard>
+                    <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetProperty="(StackPanel.Orientation)" 
+                            Storyboard.TargetName="imagePanel">
+                        <DiscreteObjectKeyFrame KeyTime="0">
+                            <DiscreteObjectKeyFrame.Value>
+                                <Orientation>Vertical</Orientation>
+                            </DiscreteObjectKeyFrame.Value>
+                        </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                    <ObjectAnimationUsingKeyFrames 
+                            Storyboard.TargetProperty="(FrameworkElement.Margin)" 
+                            Storyboard.TargetName="imagePanel">
+                        <DiscreteObjectKeyFrame KeyTime="0">
+                            <DiscreteObjectKeyFrame.Value>
+                                <Thickness>0,0,20,0</Thickness>
+                            </DiscreteObjectKeyFrame.Value>
+                        </DiscreteObjectKeyFrame>
+                    </ObjectAnimationUsingKeyFrames>
+                </Storyboard>
+            </VisualState>
+        </VisualStateGroup>
+    </VisualStateManager.VisualStateGroups>
+
 </Page>
