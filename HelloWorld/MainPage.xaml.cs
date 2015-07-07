@@ -21,6 +21,7 @@ namespace HelloWorld
     /// <summary>
     /// A basic page that provides characteristics common to most applications.
     /// </summary>
+
     public sealed partial class MainPage : Page
     {
 
@@ -150,11 +151,14 @@ namespace HelloWorld
             }
         }
 
+       
         private void WelcomePage_Click(object sender, RoutedEventArgs e)
         {
             if (this.Frame != null)
             {
-                this.Frame.Navigate(typeof(WelcomePage));
+                
+                this.Frame.Navigate(typeof(WelcomePage),uname.Text);
+
             }
         }
 

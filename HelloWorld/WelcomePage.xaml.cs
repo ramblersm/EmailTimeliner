@@ -51,6 +51,7 @@ namespace HelloWorld
             this.navigationHelper = new NavigationHelper(this);
             this.navigationHelper.LoadState += navigationHelper_LoadState;
             this.navigationHelper.SaveState += navigationHelper_SaveState;
+            
         }
 
         /// <summary>
@@ -66,6 +67,15 @@ namespace HelloWorld
         /// session. The state will be null the first time a page is visited.</param>
         private void navigationHelper_LoadState(object sender, LoadStateEventArgs e)
         {
+            string name = e.NavigationParameter as string;
+            if (!string.IsNullOrWhiteSpace(name))
+            {
+                username.Text = "Hello, " + name;
+            }
+            else
+            {
+                username.Text = "Hello Guest!";
+            }
         }
 
         /// <summary>
@@ -117,6 +127,17 @@ namespace HelloWorld
                   {
                       this.Frame.Navigate(typeof(ViewFavoriteTimelines));
                   }
+              }
+
+              
+
+              private void Logout_Click(object sender, RoutedEventArgs e)
+              {
+                  if (this.Frame != null)
+                  {
+                      this.Frame.Navigate(typeof(MainPage));
+                  }
+
               }
 
 

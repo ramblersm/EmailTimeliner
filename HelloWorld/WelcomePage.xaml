@@ -14,6 +14,11 @@
         <!-- TODO: Delete this line if the key AppName is declared in App.xaml -->
         <x:String x:Key="AppName">EmailTimeliner - Home</x:String>
     </Page.Resources>
+    <Page.BottomAppBar>
+        <CommandBar Background="#FFA9D7F3">
+            <AppBarButton x:Name="logoutButton" Label="Log Out" Icon="Permissions" Click="Logout_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
 
     <!--
         This grid acts as a root panel for the page that defines two rows:
@@ -37,16 +42,12 @@
                 <ColumnDefinition Width="120"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="backButton" Margin="39,59,39,0" Command="{Binding NavigationHelper.GoBackCommand, ElementName=pageRoot}"
-                        Style="{StaticResource NavigationBackButtonNormalStyle}"
-                        VerticalAlignment="Top"
-                        AutomationProperties.Name="Back"
-                        AutomationProperties.AutomationId="BackButton"
-                        AutomationProperties.ItemType="Navigation Button"/>
             <TextBlock x:Name="pageTitle" Text="{StaticResource AppName}" Style="{StaticResource HeaderTextBlockStyle}" Grid.Column="1" 
                         IsHitTestVisible="false" TextWrapping="NoWrap" VerticalAlignment="Bottom" Margin="0,0,30,40"/>
         </Grid>
         <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="117,58,0,0" Grid.Row="1" TextWrapping="Wrap" Text="                          Create A Timeline" VerticalAlignment="Top" Height="129" Width="339" ToolTipService.ToolTip="Click to search a subject to create a timeline view of related mail chains" FontSize="36" TextAlignment="Center" RequestedTheme="Light" PointerReleased="ViewTimeline_Click" Foreground="Black"/>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="528,58,0,0" Grid.Row="1" TextWrapping="Wrap" Text="                                          View Favorited Timelines" VerticalAlignment="Top" Height="129" Width="441" ToolTipService.ToolTip="View Timelines added as Favorites" FontSize="36" TextAlignment="Center" PointerReleased="FavoriteTimelines_Click"/>
+        <TextBlock x:Name="username" HorizontalAlignment="Left" Margin="777,10,0,0" Grid.Row="1" TextWrapping="Wrap" VerticalAlignment="Top" Height="56" Width="560" FontSize="24"/>
+        <Popup/>
     </Grid>
 </Page>
