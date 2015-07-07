@@ -16,8 +16,7 @@ namespace EmailClientApp
 
             ExchangeService service = new ExchangeService(ExchangeVersion.Exchange2007_SP1);
             
-            //string uname = "somukher@microsoft.com";
-            //string pwd = "29021992$$mnit";
+       
             Console.WriteLine("Enter your email address");
             string uname = Console.ReadLine();
             Console.WriteLine("Enter your password");
